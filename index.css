@@ -45,3 +45,13 @@ form {
 
 #log span+span { margin-left: 1ch; }
 #log button { margin-right: 1ch; }
+
+@media (max-width: 750px) {
+	body {
+		flex-direction: column;
+	}
+
+	aside {
+		flex: none;
+	}
+}

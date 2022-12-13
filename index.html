@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<aside>
+			<h1>Server</h1>
+			<ul id="users"></ul>
+		</aside>
+		<main>
+			<form>
+				<label>userVerification (login, registrace):
+					<select name="userVerification">
+						<option value="" selected>n/a</option>
+						<option>required</option>
+						<option>preferred</option>
+						<option>discouraged</option>
+					</select>
+				</label>
+				<label>authenticatorAttachment (registrace):
+					<select name="authenticatorAttachment">
+						<option value="" selected>n/a</option>
+						<option>platform</option>
+						<option>cross-platform</option>
+					</select>
+				</label>
+				<label>residentKey (registrace):
+					<select name="residentKey">
+						<option value="" selected>n/a</option>
+						<option>discouraged</option>
+						<option>preferred</option>
+						<option>required</option>
+					</select>
+				</label>
+			</form>
+			<hr/>
+			<nav>
+				<button name="register">Registrovat</button>
+				<button name="login">Přihlásit</button>
+			</nav>
+			<hr/>
+			<pre id="log"></pre>
+		</main>
+		<script type="module" src="index.js"></script>
+	</body>
+</html>

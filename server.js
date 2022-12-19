@@ -1,5 +1,4 @@
-import { prefix } from "./log.js";
-import * as CBOR from "./cbor.js";
+import { prefix } from "./log.js";import * as CBOR from "./cbor.js";
 import * as base64 from "./base64.js";
 
 
@@ -99,6 +98,12 @@ export async function register(id, name, credential) {
 	}
 
 	const { response } = credential;
+	const { credProps } = credential.getClientExtensionResults()
+	if (credProps && credProps.rk) {
+		log.log("the key IS a resident key :-)")
+	} else {
+		log.log("the key IS NOT a resident key :-(")
+	}
 
 	let pk = "";
 	if (response.getPublicKey) {
@@ -187,6 +192,7 @@ export async function getRegistrationOptions(id, name) {
 			name: user.name,
 			displayName: user.name.split("@")[0]
 		},
+		extensions: { "credProps": true },
 		excludeCredentials,
 		challenge: base64.encode(challenge),
 		pubKeyCredParams: [{alg: -7, type: "public-key"}],

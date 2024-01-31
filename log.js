@@ -24,6 +24,7 @@ export function format(value) {
 					signature: value.response.signature
 				}
 			}
+			if (value.toJSON) { obj = value.toJSON(); }
 			return format(obj);
 		break;
 
